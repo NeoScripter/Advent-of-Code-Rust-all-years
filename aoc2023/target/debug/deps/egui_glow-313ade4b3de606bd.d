@@ -1,0 +1,11 @@
+C:\Users\Ilya\USERPROFILE1\projects\aoc2022\target\debug\deps\egui_glow-313ade4b3de606bd.rmeta: C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\lib.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\painter.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\misc_util.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader_version.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\vao.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader/vertex.glsl C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader/fragment.glsl
+
+C:\Users\Ilya\USERPROFILE1\projects\aoc2022\target\debug\deps\egui_glow-313ade4b3de606bd.d: C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\lib.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\painter.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\misc_util.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader_version.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\vao.rs C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader/vertex.glsl C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader/fragment.glsl
+
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\lib.rs:
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\painter.rs:
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\misc_util.rs:
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader_version.rs:
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\vao.rs:
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader/vertex.glsl:
+C:\Users\Ilya\.cargo\registry\src\index.crates.io-6f17d22bba15001f\egui_glow-0.22.0\src\shader/fragment.glsl:

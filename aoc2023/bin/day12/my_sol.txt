@@ -1,0 +1,62 @@
+use color_eyre::eyre::{self, Result};
+use itertools::Itertools;
+use std::collections::HashSet;
+use rayon::*;
+
+fn part1(input: &str) -> u8 {
+    input.lines().map(|line| {
+        let (records, list) = line.split_once(" ").unwrap();
+        let list : Vec<usize> = list.split(",").map(|s| s.parse().unwrap()).collect();
+        process_line(records, list)
+    }).sum::<u8>()
+}
+
+fn process_line(springs: &str, dmg_counts: Vec<usize>) -> u8 {
+    let spring_states: Vec<u8> = springs.bytes().collect();
+    let (mut op, mut dmg, mut unk) = (0, 0, 0);
+
+    // Count the states of springs
+    for &state in &spring_states {
+        match state {
+            b'.' => op += 1,
+            b'#' => dmg += 1,
+            _ => unk += 1,
+        }
+    }
+
+    // Calculate unknown states based on the list
+    let total_dmg: usize = dmg_counts.iter().sum();
+    let unk_dmg = total_dmg - dmg;
+    let unk_op = unk - unk_dmg;
+
+    // Collect positions of unknown states
+    let unk_pos: Vec<usize> = spring_states.iter().enumerate().filter(|&(_, &c)| c == b'?').map(|(i, _)| i).collect();
+    
+    // Create permutations of unknown damaged and operational states
+    let dmg_perms = vec![b'#'; unk_dmg];
+    let op_perms = vec![b'.'; unk_op];
+
+    let mut total_matches = 0;
+    let proc_perms: HashSet<Vec<u8>> = dmg_perms.into_iter().chain(op_perms.into_iter()).permutations(unk).collect();
+
+    for perm in proc_perms {
+        let mut temp_states = spring_states.clone();
+        for (&pos, &state) in unk_pos.iter().zip(&perm) {
+            temp_states[pos] = state;
+        }
+
+        if temp_states.split(|&c| c == b'.').filter(|&s| !s.is_empty()).zip(&dmg_counts).all(|(part, &count)| part.len() == count) {
+            total_matches += 1;
+        }
+    }
+
+    total_matches
+}
+
+
+fn main() -> color_eyre::Result<()> {
+    color_eyre::install()?;
+    let input = include_str!("input12.txt");
+    println!("{}", part1(input));
+    Ok(())
+}

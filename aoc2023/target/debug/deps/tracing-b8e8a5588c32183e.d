@@ -1,0 +1,13 @@
+C:\Users\Ilya\USERPROFILE1\projects\my_project1\target\debug\deps\tracing-b8e8a5588c32183e.rmeta: C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\lib.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\macros.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\dispatcher.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\field.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\instrument.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\level_filters.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\span.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\stdlib.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\subscriber.rs
+
+C:\Users\Ilya\USERPROFILE1\projects\my_project1\target\debug\deps\tracing-b8e8a5588c32183e.d: C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\lib.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\macros.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\dispatcher.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\field.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\instrument.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\level_filters.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\span.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\stdlib.rs C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\subscriber.rs
+
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\lib.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\macros.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\dispatcher.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\field.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\instrument.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\level_filters.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\span.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\stdlib.rs:
+C:\Users\Ilya\.cargo\registry\src\github.com-1ecc6299db9ec823\tracing-0.1.37\src\subscriber.rs:

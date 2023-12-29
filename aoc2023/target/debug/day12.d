@@ -1,0 +1,1 @@
+C:\Users\Ilya\USERPROFILE1\projects\aoc2023\target\debug\day12.exe: C:\Users\Ilya\USERPROFILE1\projects\aoc2023\bin\day12\input12.txt C:\Users\Ilya\USERPROFILE1\projects\aoc2023\bin\day12\main.rs C:\Users\Ilya\USERPROFILE1\projects\aoc2023\src\lib.rs

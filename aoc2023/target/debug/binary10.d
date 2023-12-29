@@ -1,0 +1,1 @@
+C:\Users\Ilya\USERPROFILE1\projects\my_project1\target\debug\binary10.exe: C:\Users\Ilya\USERPROFILE1\projects\my_project1\bin\binary10\input10.txt C:\Users\Ilya\USERPROFILE1\projects\my_project1\bin\binary10\main.rs C:\Users\Ilya\USERPROFILE1\projects\my_project1\src\lib.rs
