@@ -15,6 +15,9 @@ indexmap = "2.0.0"
 id_tree = "1.8.0"
 eframe = "0.22.0"
 egui = "0.22.0"
+json = "0.12.4"
+serde_json = "1.0.108"
+num-integer = "0.1.45"
 
 [[bin]]
 name = "day1"
@@ -67,6 +70,30 @@ path = "bin/day12/main.rs"
 [[bin]]
 name = "day13"
 path = "bin/day13/main.rs"
+
+[[bin]]
+name = "day14"
+path = "bin/day14/main.rs"
+
+[[bin]]
+name = "day15"
+path = "bin/day15/main.rs"
+
+[[bin]]
+name = "day16"
+path = "bin/day16/main.rs"
+
+[[bin]]
+name = "day17"
+path = "bin/day17/main.rs"
+
+[[bin]]
+name = "day18"
+path = "bin/day18/main.rs"
+
+[[bin]]
+name = "day19"
+path = "bin/day19/main.rs"
 
 [dev-dependencies]
 test-case = "3.2.1"

@@ -1,58 +1,103 @@
-use itertools::Itertools;
-use color_eyre::eyre::{self};
+use std::collections::{BTreeMap, VecDeque};
+use nom::{
+    branch::alt,
+    bytes::complete::{tag, take},
+    combinator::{map, opt},
+    sequence::{delimited, preceded},
+    IResult,
+};
 
-struct Instruction {
-    amount: usize,
-    from: usize,
-    to: usize,
+fn parse_crate(i: &str) -> IResult<&str, char> {
+    let first_char = |s: &str| s.chars().next().unwrap();
+    let f = delimited(tag("["), take(1_usize), tag("]"));
+    map(f, first_char)(i)
 }
 
-fn parse_input() -> Option<(Vec<Vec<char>>, Vec<Instruction>)> {
-    let input = include_str!("input5.txt");
-    let binding = input.replace("\r\n", "\n");
-    let (left, instructions_str) = binding.split_once("\n\n")?;
-    let binding1 = left.replace("\r\n", "\n");
-    let (stack_str, platforms) = binding1.rsplit_once('\n')?;
+fn parse_hole(i: &str) -> IResult<&str, ()> {
+    map(tag("   "), drop)(i)
+}
 
-    let num_stacks = platforms.split_whitespace().last()?.parse().ok()?;
-    let mut stacks = vec![Vec::new(); num_stacks];
+fn parse_crate_or_hole(i: &str) -> IResult<&str, Option<char>> {
+    alt((map(parse_crate, Some), map(parse_hole, |_| None)))(i)
+}
 
-    for line in stack_str.lines().rev() {
-        for (idx, mut chunk) in line.chars().chunks(4).into_iter().enumerate() {
-            let second = chunk.nth(1).unwrap_or_default();
-            if second.is_alphabetic() {
-                stacks[idx].push(second);
-            }
+fn parse_crate_line(i: &str) -> IResult<&str, Vec<Option<char>>> {
+    let (mut i, c) = parse_crate_or_hole(i)?;
+    let mut v = vec![c];
+
+    loop {
+        let (next_i, maybe_c) = opt(preceded(tag(" "), parse_crate_or_hole))(i)?;
+        match maybe_c {
+            Some(c) => v.push(c),
+            None => break,
+        }
+        i = next_i;
+    }
+
+    Ok((i, v))
+}
+
+#[derive(Debug, Clone)]
+struct Crane {
+    crts: BTreeMap<usize, Vec<char>>,
+    cmds: VecDeque<Vec<usize>>,
+}
+
+impl Crane {
+    fn new() -> Self {
+        Self {
+            crts: BTreeMap::new(),
+            cmds: VecDeque::new(),
         }
     }
-    let mut instructions = Vec::new();
-    for line in instructions_str.lines() {
-        let rest = line.strip_prefix("move ")?;
-        let (amount, rest) = rest.split_once(" from ")?;
-        let (from, to) = rest.split_once(" to ")?;
-        let instruction = Instruction {
-            amount: amount.parse().ok()?,
-            from: from.parse::<usize>().ok()? - 1,
-            to: to.parse::<usize>().ok()? - 1,
-        };
-        instructions.push(instruction);
+    fn move_crates_p1(&mut self) {
+        while let Some(cmd) = self.cmds.pop_front() {
+            let (qt, fr, to) = (cmd[0], cmd[1], cmd[2]);
+            (0..qt).for_each(|_| {
+                if let Some(item) = self.crts.get_mut(&fr).and_then(|from| from.pop()) {
+                    self.crts.get_mut(&to).unwrap().push(item);
+                }
+            })
+        }
     }
-
-    Some((stacks, instructions))
+    fn move_crates_p2(&mut self) {
+        while let Some(cmd) = self.cmds.pop_front() {
+            let (qt, fr, to) = (cmd[0], cmd[1], cmd[2]);
+            let mut temp = Vec::new();
+            (0..qt).for_each(|_| {
+                if let Some(item) = self.crts.get_mut(&fr).and_then(|from| from.pop()) {
+                    temp.push(item);
+                }
+            });
+            temp.reverse();
+            self.crts.get_mut(&to).unwrap().extend(temp);
+        }
+    }
+    fn final_cfg(&mut self) -> String {
+        self.crts.values().filter_map(|v| v.last()).collect::<String>()
+    }
 }
-
-fn main() -> color_eyre::Result<()> {
-    let (mut stacks, instructions) = parse_input().unwrap();
-    for Instruction { amount, from, to } in instructions {
-        let from_stack_len = stacks[from].len();
-        let removed = stacks[from].split_off(from_stack_len - amount);
-        stacks[to].extend(removed);
-    }
-    let result: String = stacks
-        .iter()
-        .filter_map(|stack| stack.iter().last())
-        .collect();
-
-    println!("{}", result);
-    Ok(())
+fn solve(input: &str) -> String {
+    let (crts, cmds) = input.split_once("\r\n\r\n").unwrap();
+    let mut crane = Crane::new();
+    crts.lines().rev().skip(1).for_each(|line| {
+        if let Ok((_, row)) = parse_crate_line(line) {
+            row.into_iter().enumerate().for_each(|(idx, c)| {
+                match c {
+                    Some(ch) => crane.crts.entry(idx + 1).or_insert_with(Vec::new).push(ch),
+                    None => {},
+                }
+    })
+        }
+    });
+    cmds.lines().for_each(|line| {
+        let cmd_ln: Vec<usize> = line.split_whitespace().filter_map(|x| x.parse::<usize>().ok()).collect();
+        crane.cmds.push_back(cmd_ln)
+    });
+    crane.move_crates_p2();
+    crane.final_cfg()
+}
+fn main() {
+    let input = include_str!("input5.txt");
+    println!("{}", solve(input));
 }
