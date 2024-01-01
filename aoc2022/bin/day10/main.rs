@@ -25,7 +25,7 @@ impl CRT {
     }
     fn update(&mut self) {
         self.output.push(if self.is_visible() { '#' } else { '.' });
-        if self.new_line() {self.output.push_str("\n\r")}
+        if self.new_line() {self.output.push_str("\r\n")}
     }
 }
 
